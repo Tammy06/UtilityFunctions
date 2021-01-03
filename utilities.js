@@ -151,53 +151,34 @@ function timeAgo(itemDate){
     if(interval < secPerMin){
         return 'few seconds ago';
     }
+
     if(interval > secPerMin && interval < secPerHr){
         timeAgo = Math.round(interval/secPerMin);
-        if(timeAgo > 1){
-            return timeAgo + ' minutes ago';
-        }else{
-            return 'a minute ago';
-        }   
+        return timeAgo > 1 ? timeAgo + ' minutes ago' : 'a minute ago';   
     }
+
     if(interval > secPerHr && interval < secPerDy){
         timeAgo = Math.round(interval/secPerHr);
-        if(timeAgo > 1){
-            return timeAgo + ' hours ago';
-        }else{
-            return 'an hour ago';
-        }
-        
+        return timeAgo > 1 ? timeAgo + ' hours ago' : 'an hour ago';  
     }
+
     if(interval > secPerDy && interval < secPerWk){
         timeAgo = Math.round(interval/secPerDy);
-        if(timeAgo > 1){
-            return timeAgo + ' days ago';
-        }else{
-            return 'a day ago';
-        }
+        return timeAgo > 1 ? timeAgo + ' days ago' : 'a day ago';
     }
+
     if(interval > secPerWk && interval < secPerMon){
-        timeAgo = Math.round(interval/secPerWk);
-        if(timeAgo > 1){
-            return Math.round(interval/secPerWk) + ' weeks ago';
-        }else{
-            return 'a week ago';
-        }  
+        timeAgo = Math.round(interval/secPerWk); 
+        return timeAgo > 1 ? timeAgo + ' weeks ago' : 'a week ago';
     }
+
     if(interval > secPerMon && interval < secPerYr){
         timeAgo = Math.round(interval/secPerMon);
-        if(timeAgo > 1){
-            return Math.round(interval/secPerMon) + ' months ago';
-        }else{
-            return 'a month ago';
-        }
+        return timeAgo > 1 ? timeAgo + ' months ago' : 'a month ago';
     }
+
     if(interval > secPerYr){
         timeAgo = Math.round(interval/secPerYr);
-        if(timeAgo > 1){
-            return Math.round(interval/secPerYr) + ' years ago';
-        }else{
-            return 'a year ago';
-        }    
+        return timeAgo > 1 ? timeAgo + ' years ago' : 'a year ago';
     }
 }
